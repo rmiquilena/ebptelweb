@@ -3,6 +3,7 @@ import os, sys, environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 # Environ init
 env = environ.Env()
@@ -22,12 +23,23 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    # Application base
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Application Structure
+    'sitetree',
+    'django_extensions',
+    'crispy_forms',
+    'fontawesomefree',
+    'django_select2',
+    # Application Modules
+    'login',
+    'inicio',
+    'productos',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +150,13 @@ AD_DOMAIN_NAME=env('AD_DOMAIN_NAME')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# LINEA DE AUTENTICATIONS LOGIN
+
+AUTH_USER_MODEL = 'login.User'
+
+LOGIN_URL = '/'
+
 
 # Captura de Errores de Log
 LOGGING = {

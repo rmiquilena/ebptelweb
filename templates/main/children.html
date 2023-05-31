@@ -1,0 +1,10 @@
+{% load sitetree %}
+<ul class="nav nav-treeview" aria-labelledby="navitem-{{ item.id }}">
+    <li>
+        {% for item in sitetree_items %}
+            <a class="nav-link text-white {% if item.is_current or item.in_current_branch %}active{% endif %}" href="{% sitetree_url for item %}" {% if item.hint %}title="{{ item.hint }}" {% endif %}>
+                &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-{{ item.alias}} nav-icon"></i>{{ item.title_resolved }}
+            </a>
+        {% endfor %}
+    </li>
+</ul>
