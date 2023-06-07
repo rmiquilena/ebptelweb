@@ -3,38 +3,26 @@
 {% block content %}
 
 <section class="content">
-    <div class="container-fluid">
-        <input type="hidden" id="Idusuario" value="{{ Idusuario }}">
-        <div class="modal fade" id="InicioModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md  modal-dialog-centered" >
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="InicioModalLabel">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                            &nbsp;Informaci&oacute;n
-                            <button id="btocerrar" style="display: none;" type="button" class="btn-close" data-bs-keyboard="false" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <h5>
-                    </div><!-- End modal-header--> 
-                    <div class="modal-body text-center">
-                        <h4>
-                            BIENVENIDO AL SISTEMA
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br>
+                        <h4 class="m-0 text-black-50 text-center" >
+                            {% block title %} 
+                            <span class="fs-2 text">Bienvenido <br> </span>
+                                <span class="fs-5 text">Beneficios para los Empleados </span>
+                            {% endblock %}
+                            <br>
                         </h4>
-                        <hr style="border-top: 0.1px solid #8c8b8b;">
-                        <br>
-                        <div class="form-row text-center">
-                            <label>Seleccione la empresa:</label>
-                            <select id="IdEmpresas" class="form-select form-control-sm" style="display: none;"></select>
-                        </div>
-                        <h6> 
-                            <strong><div id="Mnsjerror" style="color: #FF0000;"></div></strong>
-                        </h6>
-                        <p style="font-size: 15px; color:#FF0000;"> 
-                            <a id="btoempresa" href="/empresa/">Registrar</a>
-                        </p>
+                        <hr>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <div id="ViewProducts" class="grid-layout col-md-10" style="border: 1px solid red;"></div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
 </section>
 

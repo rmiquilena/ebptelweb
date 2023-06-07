@@ -1,12 +1,11 @@
-
 toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
+    "closeButton": "True",
+    "debug": "false",
+    "newestOnTop": "false",
+    "progressBar": "True",
     "positionClass": "toast-top-right",
-    "preventDuplicates": false,
-    "onclick": null,
+    "preventDuplicates": "false",
+    "onclick": "null",
     "showDuration": "300",
     "hideDuration": "1000",
     "timeOut": "5000",
@@ -135,7 +134,6 @@ function abrir_modal(url, modal){
     
     $(modal).load(url, function(){
         $(this).modal('show');
-        aleatorio('001','5000', 'SOL', 'id_nrosoli')
     });
 }
 
@@ -152,8 +150,10 @@ function activarButon(){
     }
 }
 
+
 //----------------VALIDACION DE CAMPOS Y COMBOS--------------
 function validar_campo(id_campo, et_campo,mensaje){
+
     obj=document.getElementById(id_campo)
     //objmsj=document.getElementById(id_mensaje);
     if(obj.value === "" || obj.value === "...."){
@@ -163,6 +163,7 @@ function validar_campo(id_campo, et_campo,mensaje){
     else{
         return true;
     }
+    
 }
 
 //----------------MOSTRAR RELOJ CON LA HORA --------------

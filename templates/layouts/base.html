@@ -1,19 +1,18 @@
 {% load static sitetree %}
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
 
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    	<title>SYSTEMS EMPLOYEE BENEFIT PROGRAM | SEBP </title>
+    	<title>EMPLOYEE BENEFIT PROGRAM | SEBP </title>
         <!-- Favicon icon -->
         <link rel="icon" type="image/png" sizes="36x36" href="{% static '/images/telefonica/TelefonicaLogo.png' %}">
 
         <!--############################################### STYLES CSS #######################################################-->
         <!-- Font Awesome -->
         <link href="{% static 'vendor/fontawesome6/css/all.min.css' %}" rel="stylesheet" type="text/css">
-        <!-- Bootstrap Core Css -->
+        <!-- MDB CLI -->
         <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
         <!-- AdminLte -->
         <link rel="stylesheet" href="{% static 'css/admin/lte/adminlte.min.css' %}">
@@ -30,7 +29,9 @@
         <link rel="stylesheet" href="{% static 'vendor/datatables/Responsive/css/responsive.bootstrap5.min.css' %}">
         <link rel="stylesheet" href="{% static 'vendor/datatables/Scroller/css/scroller.dataTables.min.css' %}">
         <link rel="stylesheet" href="{% static 'vendor/datatables/Select/css/select.dataTables.min.css' %}">
-
+        <!-- Styles Generals -->
+        <link rel="stylesheet" href="{% static 'css/generalstyle.css' %}">
+        
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -46,7 +47,7 @@
                     <li class="nav-item">
                         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                             <img src="{% static 'images/profile-img.jpg' %}" class="img-size-32 mr-3 img-circle" alt="User Image">
-                            <b>{{request.user.first_name}} {{ request.user.last_name }}</b>
+                            <b>{{fullName}}</b>
                         </a>
                     </li>
                 </ul>
@@ -57,14 +58,27 @@
                 <a href="#" class="brand-link">
                     <img src="{% static '/images/telefonica/TelefonicaLogo.png' %}" alt="SEBP"
                             class="brand-image img-circle elevation-3" sizes="36x36">
-                    <span class="brand-text font-weight-light"><b>SYSEMPBP</b></span>
+                    <span class="brand-text font-weight-light"><b>&nbsp;SEBP</b></span>
                 </a>
-                <!-- Sidebar -->
+                <!--Sidebar--> 
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <!-- Menu -->
                     <nav class="mt-2">
-                        {% sitetree_menu from "mainmenu" include "trunk" template "main/index.html" %}
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                                <!--<li class="nav-item menu-open">
+                                    <a href="#" class="nav-link active">
+                                        <i class="nav-icon fa-solid fa-house"></i>
+                                        <p>Inicio </p>
+                                    </a>
+                                </li>-->
+                                <li class="nav-item menu-open">
+                                    <a href="{% url 'login:logout' %}" class="nav-link" >
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <p>Salir</p>
+                                    </a>
+                                </li>
+                        </ul>
                     </nav> 
                 </div>
             </aside>
@@ -79,7 +93,7 @@
                 <strong>Copyright &copy; 
                     <script>
                     document.write(new Date().getFullYear())
-                    </script>, <a href="#">SAEC</a>.</strong> All rights reserved.
+                    </script>, <a href="#">SEBP</a>.</strong> All rights reserved.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.0.0
                 </div>

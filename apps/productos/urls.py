@@ -8,4 +8,6 @@ app_name = 'productos'
 
 urlpatterns = [
     path('', login_required(views.Productos), name='index'),
+    path('create/', login_required(views.ProductoCreate.as_view()), name='create_productos'),
+    
 ]

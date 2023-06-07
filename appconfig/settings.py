@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'django_select2',
     # Application Modules
-    'login',
-    'inicio',
-    'productos',
+    'apps.login',
+    'apps.inicio',
+    'apps.productos',
 ]
 
 MIDDLEWARE = [

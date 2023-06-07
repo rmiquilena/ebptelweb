@@ -10574,7 +10574,7 @@ fieldset:disabled .btn {
 }
 
 .text-info {
-  color: #17c1e8 !important;
+  color: #0066FF !important;
 }
 
 .text-warning {
@@ -10646,7 +10646,7 @@ fieldset:disabled .btn {
 }
 
 .bg-info {
-  background-color: #17c1e8 !important;
+  background-color: #0066FF !important;
 }
 
 .bg-warning {
@@ -21430,6 +21430,7 @@ fieldset:disabled .btn {
   align-items: center;
   background-size: cover;
   background-position: 50%;
+  background: #fff;
 }
 
 .page-header .container {
@@ -21962,7 +21963,7 @@ svg.text-secondary .color-background {
 }
 
 svg.text-info .color-foreground {
-  fill: #2152ff;
+  fill: #019DF4;
 }
 
 svg.text-info .color-background {
