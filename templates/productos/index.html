@@ -1,4 +1,4 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/basedas.html" %}
 {% load static %}
 {% block content %}
     <!-- Content Header (Page header)-->
@@ -9,14 +9,14 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- List Productos -->
+            <!-- List Empresas -->
             <div class="row">
                 <div class="col-12">
                     <div class="card card-default border-top border-primary">
                         <div class="card-header ">
                             <div class="col-12 d-flex justify-content-between align-items-center">
-                                <h5 class="m-0 text-dark"><i class="fas fa-store"></i>&nbsp; Productos</h5>
-                                <button type="submit"  class="btn btn-success btn-sm btn-circle " title="Registrar Producto" onclick="location.href='{% url 'productos:create_productos' %}'"><i class="fa-solid fa-plus fa-lg"></i></button>
+                                <h5 class="m-0 text-dark"><i class="fas fa-store"></i>&nbsp; Listado de Productos</h5>
+                                <button type="submit"  class="btn btn-success btn-circle" title="Registrar Producto" onclick="abrir_modal('{% url 'productos:create_productos' %}', '#productosNew')"><i class="fa-solid fa-plus fa-lg"></i>&nbsp; Agregar </button>
                             </div>
                         </div>
                         <div class="card-body">
@@ -29,10 +29,8 @@
                                         <th class="text-center">C&oacute;digo Barras</th>
                                         <th class="text-center">Images</th>
                                         <th class="text-center">Nombre</th>
-                                        <th class="text-center">Compra</th>
-                                        <th class="text-center">Utilidad</th>
-                                        <th class="text-center">Venta</th>
-                                        <th class="text-center">Stockm</th>
+                                        <th class="text-center">Descripci&oacute;n</th>
+                                        <th class="text-center">Precio</th>
                                         <th class="text-center" width="5%">Existencia</th>
                                     </tr>
                                 </thead>
@@ -42,10 +40,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal Sucursales -->   
+            <div class="row">
+                <!-- Modal -->
+                <div class="modal fade" id="productosNew" tabindex="-1" role="dialog" aria-hidden="true"></div>
+                <div class="modal fade" id="productosEdit" tabindex="-1" role="dialog" aria-hidden="true"></div>
+            </div>
         </div>
     </section>
-{% block extrajs %}
-    <script src="{% static '/js/reqs/productos/index.js' %}"></script>
-{% endblock extrajs %}
-  
+    {% block extrajs %}
+        <script src="{% static '/js/reqs/productos/index.js' %}"></script>
+    {% endblock extrajs %}
+
 {% endblock content %}

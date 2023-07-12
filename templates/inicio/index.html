@@ -2,29 +2,70 @@
 {% load static %}
 {% block content %}
 
-<section class="content">
-    <div class="content-header">
-        <div class="container-fluid">
+<main class="content">
+    <div class="container" >
+        <input id="IdRango" type="hidden" value={{rango}}>
+        <!-- LISTVIEW -->
+        <div class="row" id="listview">
+            <h1 class="text-secondary fs-6 p-4"><strong>Solicita tu equipo y p&aacute;galo en</strong> 12 cuotas</h1>
+            <div class="row" id="viewProducts"></div>
+        </div>
+        <!-- DETAILS VIEW-->
+        <div class="row top-area" id="detailsview" style="display: none;">
             <div class="row">
-                <div class="col-sm-12">
-                    <br>
-                        <h4 class="m-0 text-black-50 text-center" >
-                            {% block title %} 
-                            <span class="fs-2 text">Bienvenido <br> </span>
-                                <span class="fs-5 text">Beneficios para los Empleados </span>
-                            {% endblock %}
-                            <br>
-                        </h4>
-                        <hr>
-                    <br>
-                    <div class="d-flex justify-content-center">
-                        <div id="ViewProducts" class="grid-layout col-md-10" style="border: 1px solid red;"></div>
+                <div class="col-lg-6 w-50 main-product-image" id="imageProd"></div>
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="float: left; width: 50%;">
+                            <a class="text-end" href="BlockProdcts()"><i class="fa-solid fa-caret-left"></i>Atras</a>
+                        </span>
+                        <span class="input-group-addon fw-bolder" style="float: right; width: 50%; text-align:right "  id="countdown"></span>
                     </div>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                    <div class="product-info">
+                        <!-- Nombre del Producto -->
+                        <div class="input-group">
+                            <span class="input-group-addon">Nombre:</span>
+                        </div>
+                        <div class="input-group">
+                            &nbsp;&nbsp; <div id="titleProd" class="text-uppercase titlePrin fw-bold"></div>
+                        </div>
+                        
+                        <!-- Precio del Producto -->
+                        <div class="input-group">
+                            <span class="input-group-addon">Precio:</span>
+                        </div>
+                        <div class="input-group">
+                            &nbsp;&nbsp; <div id="priceProd" class="text-uppercase titlePrin"></div>
+                        </div>
+
+                        <!-- Descripción del Producto -->
+                        <div class="input-group">
+                            <span class="input-group-addon">Descripci&oacute;n:</span>
+                        </div>
+                        <div class="input-group">
+                            &nbsp;&nbsp; <div id="descripProd" class="text-capitalize fw-light"></div>
+                        </div>
+                        <hr>
+                        <!-- Cantidad del Producto -->
+                        <div class="input-group">
+                            <span class="input-group-addon">Disponible:</span>
+                        </div>
+                        <div class="input-group">
+                            &nbsp;&nbsp; <div id="dispProd" class="text-uppercase titlePrin fw-bold"></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-lg btn-primary cart-button" type="button">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                &nbsp;Comprar ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</main>
 
 {% block extrajs %}<script src="{% static '/js/reqs/inicio/index.js' %}"></script>{% endblock extrajs %}
 

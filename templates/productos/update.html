@@ -1,0 +1,95 @@
+{% load crispy_forms_tags %}
+<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header bg-light">
+      <h5 class="modal-title"><i class="far fa-address-card"></i>&nbsp;<b>Actualizaci&oacute;n de Productos</b></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body ">
+      <form id="formProductos" method="POST" enctype="multipart/form-data" class="post-form">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputsm">C&oacute;digo de Barras:</label>
+            {{ form.barcod }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputsm">Nombre:</label>
+            {{ form.nombre}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputsm">Categor&iacute;as:</label>
+            {{ form.catego }}
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputsm">Unidad:</label>
+            {{ form.unidad }}
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputsm">Presentaci&oacute;n:</label>
+            {{ form.presen }}
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputsm">Ubicaci&oacute;n:</label>
+            {{ form.ubicas }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputsm">Stock:</label>
+            {{ form.stocka }}
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputsm">Stock Min:</label>
+            {{ form.stockm }}
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputsm">Existencia:</label>
+            {{ form.existe }}
+          </div>
+        </div>  
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputsm">Precio Costo:</label>
+            {{ form.pricec }}
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputsm">(%) Utilidad:</label>
+            {{ form.utilid }}
+            {{ form.monuti }}
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputsm">(%) Impuesto:</label>
+            {{ form.ivaop }}
+            {{ form.moniva }}
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputsm">Precio Venta:</label>
+            {{ form.pricev }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <input class="form-control form-control-sm" id="formFileSm" type="file" onchange="mostrar(this,'imgviewPro', 'id_images')">
+            {{ form.images }}
+            <br>
+            <img src='{{ form.images.value }}' id="imgviewPro" class="avatable img-fluid rounded mx-auto d-block"/>
+          </div>  
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputsm">Descripci&oacute;n del producto:</label>
+            {{ form.descri }}
+          </div>
+        </div>  
+        <div class="modal-footer">
+          <button id="btonActualizar" type="submit" class="btn btn-lg btn-success btn-circle" title="Actualizar Producto" onclick="editProductos({{ object.pk }});"><i class="fas fa-lg fa-edit fa-lg"></i> Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

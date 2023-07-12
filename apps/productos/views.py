@@ -16,8 +16,22 @@ from .forms import ProductosForm
 
 
 # Create your views here.
-def Productos(request):
+def inicio(request):
     return render(request, 'productos/index.html')
+
+############## SEARCH PRODUCTS ##############
+
+class ProductoList(ListView):
+    model = Productos
+    template_name = "productos/index.html"
+
+    def post(self, request, *args, **kwargs):
+        
+        if request.method == "POST":
+            cursor = connection.cursor()
+            cursor.execute('SELECT id, barcod, images, nombre, descri, stockm, existe, precio_venta FROM dbemploytel.viewproductos;')
+            rows = dictfetchall(cursor)
+            return JsonResponse(rows, safe=False)
 
 ############## CREATE PRODUCTOS ##############
 
@@ -31,6 +45,7 @@ class ProductoCreate(CreateView):
         
         if request.method == "POST":
             form = self.form_class(request.POST or None) 
+            print("Formulario==>", form)
             if form.is_valid():
                 products = form.save(commit=False)
                 products.save()
@@ -43,6 +58,31 @@ class ProductoCreate(CreateView):
                 error = form.errors
                 response = JsonResponse({'mensajes': mensajes, 'error': error})
                 response.status_code = 400
+                return  response
+        else:
+            return redirect('/productos/')
+        
+############## UPDATE PRODUCTOS ##############
+
+class ProductoUpdate(UpdateView):
+    
+    model = Productos
+    form_class= ProductosForm
+    template_name = "productos/update.html"
+
+    def post(self, request, *args, **kwargs):
+
+        if request.method == "POST":
+            form = self.form_class(request.POST, instance = self.get_object())
+            if form.is_valid():
+                form.save()
+                mensajes = f'{self.model.__name__} actualizado(a) correctamente!'
+                response = JsonResponse({'mensajes': mensajes}, status=200)
+                return  response
+            else:
+                mensajes = f'{self.model.__name__} no se ha podido actualizar'
+                error = form.errors
+                response = JsonResponse({'mensajes': mensajes, 'error': error}, status=400)
                 return  response
         else:
             return redirect('/productos/')

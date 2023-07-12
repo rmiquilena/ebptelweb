@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.login',
     'apps.inicio',
     'apps.productos',
+    'apps.rangos'
 ]
 
 MIDDLEWARE = [

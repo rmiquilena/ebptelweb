@@ -86,4 +86,5 @@ class Productos(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
+        #producto = (self.pk +'('+ self.nombre+')')
         return self.nombre

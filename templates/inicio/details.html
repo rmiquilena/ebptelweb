@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block content %}
+
+<main class="content p-0">
+    <div class="container">
+        
+        <input id="IdRango" type="hidden" value={{rango}}>
+        <!-- LISTVIEW -->
+        <div class="container">
+            <div class="row" id="listview">
+                <h1 class="text-secondary fs-6 p-4"><strong>Solicita tu equipo y p&aacute;galo en</strong> 12 cuotas</h1>
+                <div class="row" id="viewProducts"></di>
+            </div>
+        </div>
+        
+    </div>
+</main>
+
+
+{% block extrajs %}<script src="{% static '/js/reqs/inicio/index.js' %}"></script>{% endblock extrajs %}
+
+{% endblock %}
